@@ -88,6 +88,8 @@
     </dependencies>
 
     <build>
+        <finalName>voucher-app</finalName>
+
         <plugins>
             <!--wildfly deploy -->
             <plugin>
