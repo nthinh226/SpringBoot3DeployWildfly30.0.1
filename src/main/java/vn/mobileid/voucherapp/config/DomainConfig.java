@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.config;
+package vn.mobileid.voucherapp.config;
 
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @Configuration
-@EntityScan("vn.mobileid.voucher_app.domain")
-@EnableJpaRepositories("vn.mobileid.voucher_app.repos")
+@EntityScan("vn.mobileid.voucherapp.domain")
+@EnableJpaRepositories("vn.mobileid.voucherapp.repos")
 @EnableTransactionManagement
 @EnableJpaAuditing(dateTimeProviderRef = "auditingDateTimeProvider")
 public class DomainConfig {

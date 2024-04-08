@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.util;
+package vn.mobileid.voucherapp.util;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;

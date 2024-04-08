@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.rest;
+package vn.mobileid.voucherapp.rest;
 
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vn.mobileid.voucher_app.model.VoucherDTO;
-import vn.mobileid.voucher_app.service.VoucherService;
-import vn.mobileid.voucher_app.util.ReferencedException;
-import vn.mobileid.voucher_app.util.ReferencedWarning;
+import vn.mobileid.voucherapp.model.VoucherDTO;
+import vn.mobileid.voucherapp.service.VoucherService;
+import vn.mobileid.voucherapp.util.ReferencedException;
+import vn.mobileid.voucherapp.util.ReferencedWarning;
 
 
 @RestController

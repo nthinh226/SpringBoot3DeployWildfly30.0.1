@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.config;
+package vn.mobileid.voucherapp.config;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;

@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.model;
+package vn.mobileid.voucherapp.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;

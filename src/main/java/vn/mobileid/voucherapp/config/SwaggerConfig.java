@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.config;
+package vn.mobileid.voucherapp.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

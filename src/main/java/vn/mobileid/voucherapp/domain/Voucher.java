@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.domain;
+package vn.mobileid.voucherapp.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import vn.mobileid.voucher_app.model.VoucherStatus;
+import vn.mobileid.voucherapp.model.VoucherStatus;
 
 
 @Entity

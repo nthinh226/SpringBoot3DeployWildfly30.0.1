@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.controller;
+package vn.mobileid.voucherapp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

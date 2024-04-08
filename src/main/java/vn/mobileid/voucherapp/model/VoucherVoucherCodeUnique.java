@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.model;
+package vn.mobileid.voucherapp.model;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -15,7 +15,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.Map;
 import org.springframework.web.servlet.HandlerMapping;
-import vn.mobileid.voucher_app.service.VoucherService;
+import vn.mobileid.voucherapp.service.VoucherService;
 
 
 /**

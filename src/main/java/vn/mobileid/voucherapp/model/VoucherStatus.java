@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.model;
+package vn.mobileid.voucherapp.model;
 
 
 public enum VoucherStatus {

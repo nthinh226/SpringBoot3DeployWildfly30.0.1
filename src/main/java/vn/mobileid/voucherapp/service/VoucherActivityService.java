@@ -1,14 +1,14 @@
-package vn.mobileid.voucher_app.service;
+package vn.mobileid.voucherapp.service;
 
 import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import vn.mobileid.voucher_app.domain.Voucher;
-import vn.mobileid.voucher_app.domain.VoucherActivity;
-import vn.mobileid.voucher_app.model.VoucherActivityDTO;
-import vn.mobileid.voucher_app.repos.VoucherActivityRepository;
-import vn.mobileid.voucher_app.repos.VoucherRepository;
-import vn.mobileid.voucher_app.util.NotFoundException;
+import vn.mobileid.voucherapp.domain.Voucher;
+import vn.mobileid.voucherapp.domain.VoucherActivity;
+import vn.mobileid.voucherapp.model.VoucherActivityDTO;
+import vn.mobileid.voucherapp.repos.VoucherActivityRepository;
+import vn.mobileid.voucherapp.repos.VoucherRepository;
+import vn.mobileid.voucherapp.util.NotFoundException;
 
 
 @Service

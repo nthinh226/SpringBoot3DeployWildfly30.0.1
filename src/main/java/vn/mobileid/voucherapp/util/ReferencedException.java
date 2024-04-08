@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.util;
+package vn.mobileid.voucherapp.util;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

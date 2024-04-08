@@ -1,4 +1,4 @@
-package vn.mobileid.voucher_app.model;
+package vn.mobileid.voucherapp.model;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
