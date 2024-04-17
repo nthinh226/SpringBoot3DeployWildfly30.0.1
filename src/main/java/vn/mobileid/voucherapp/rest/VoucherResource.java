@@ -3,6 +3,9 @@ package vn.mobileid.voucherapp.rest;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +35,8 @@ public class VoucherResource {
 
     @GetMapping
     public ResponseEntity<List<VoucherDTO>> getAllVouchers() {
+        Logger logger = LogManager.getLogger(VoucherResource.class);
+        logger.info("asdasda");
         return ResponseEntity.ok(voucherService.findAll());
     }
 

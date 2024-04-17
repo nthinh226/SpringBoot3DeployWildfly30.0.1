@@ -20,19 +20,28 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI openApiSpec() {
-        return new OpenAPI().components(new Components()
-                .addSchemas("ApiErrorResponse", new ObjectSchema()
-                        .addProperty("status", new IntegerSchema())
-                        .addProperty("code", new StringSchema())
-                        .addProperty("message", new StringSchema())
-                        .addProperty("fieldErrors", new ArraySchema().items(
-                                new Schema<ArraySchema>().$ref("ApiFieldError"))))
-                .addSchemas("ApiFieldError", new ObjectSchema()
-                        .addProperty("code", new StringSchema())
-                        .addProperty("message", new StringSchema())
-                        .addProperty("property", new StringSchema())
-                        .addProperty("rejectedValue", new ObjectSchema())
-                        .addProperty("path", new StringSchema())));
+        // Define the ApiFieldError schema first
+        ObjectSchema apiFieldErrorSchema = (ObjectSchema) new ObjectSchema()
+                .addProperty("code", new StringSchema())
+                .addProperty("message", new StringSchema())
+                .addProperty("property", new StringSchema())
+                .addProperty("rejectedValue", new ObjectSchema())
+                .addProperty("path", new StringSchema());
+
+        // Define the ApiErrorResponse schema with a reference to ApiFieldError
+        ObjectSchema apiErrorResponseSchema = (ObjectSchema) new ObjectSchema()
+                .addProperty("status", new IntegerSchema())
+                .addProperty("code", new StringSchema())
+                .addProperty("message", new StringSchema())
+                .addProperty("fieldErrors", new ArraySchema().items(apiFieldErrorSchema)); // Reference ApiFieldError directly
+
+        // Define components and add schemas
+        Components components = new Components()
+                .addSchemas("ApiFieldError", apiFieldErrorSchema) // Add ApiFieldError schema to components
+                .addSchemas("ApiErrorResponse", apiErrorResponseSchema); // Add ApiErrorResponse schema to components
+
+        // Create and return OpenAPI object
+        return new OpenAPI().components(components);
     }
 
     @Bean
