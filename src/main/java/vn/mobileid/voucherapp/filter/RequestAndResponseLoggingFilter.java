@@ -9,7 +9,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.jmx.export.annotation.ManagedResource;
-import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
@@ -43,7 +42,7 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
             "proxy-authorization"
     );
 
-    private boolean enabled = true;
+    private final boolean enabled = true;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -61,10 +60,9 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
         try {
             beforeRequest(request, response, msg);
             filterChain.doFilter(request, response);
-        }
-        finally {
+        } finally {
             afterRequest(request, response, msg);
-            if(log.isInfoEnabled()) {
+            if (log.isInfoEnabled()) {
                 log.info(msg.toString());
             }
             response.copyBodyToResponse();
@@ -97,12 +95,14 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
                 .forEach(headerName ->
                         Collections.list(request.getHeaders(headerName))
                                 .forEach(headerValue -> {
-                                    if(isSensitiveHeader(headerName)) {
-                                        msg.append(String.format("%s %s: %s", prefix, headerName, "*******")).append("\n");
-                                    }
-                                    else {
-                                        msg.append(String.format("%s %s: %s", prefix, headerName, headerValue)).append("\n");
-                                    }
+                                    msg.append(String.format("%s %s: %s", prefix, headerName, headerValue)).append("\n");
+
+//                                    if(isSensitiveHeader(headerName)) {
+//                                        msg.append(String.format("%s %s: %s", prefix, headerName, "*******")).append("\n");
+//                                    }
+//                                    else {
+//                                        msg.append(String.format("%s %s: %s", prefix, headerName, headerValue)).append("\n");
+//                                    }
                                 }));
         msg.append(prefix).append("\n");
     }
@@ -122,12 +122,14 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
                         response.getHeaders(headerName)
                                 .forEach(headerValue ->
                                 {
-                                    if(isSensitiveHeader(headerName)) {
-                                        msg.append(String.format("%s %s: %s", prefix, headerName, "*******")).append("\n");
-                                    }
-                                    else {
-                                        msg.append(String.format("%s %s: %s", prefix, headerName, headerValue)).append("\n");
-                                    }
+                                    msg.append(String.format("%s %s: %s", prefix, headerName, headerValue)).append("\n");
+
+//                                    if(isSensitiveHeader(headerName)) {
+//                                        msg.append(String.format("%s %s: %s", prefix, headerName, "*******")).append("\n");
+//                                    }
+//                                    else {
+//                                        msg.append(String.format("%s %s: %s", prefix, headerName, headerValue)).append("\n");
+//                                    }
                                 }));
         msg.append(prefix).append("\n");
         byte[] content = response.getContentAsByteArray();
@@ -153,6 +155,7 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
 
     /**
      * Determine if a given header name should have its value logged.
+     *
      * @param headerName HTTP header name.
      * @return True if the header is sensitive (i.e. its value should <b>not</b> be logged).
      */

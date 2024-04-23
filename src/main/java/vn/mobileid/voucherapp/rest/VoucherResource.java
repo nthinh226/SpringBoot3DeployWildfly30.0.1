@@ -36,7 +36,6 @@ public class VoucherResource {
     @GetMapping
     public ResponseEntity<List<VoucherDTO>> getAllVouchers() {
         Logger logger = LogManager.getLogger(VoucherResource.class);
-        logger.info("asdasda");
         return ResponseEntity.ok(voucherService.findAll());
     }
 
