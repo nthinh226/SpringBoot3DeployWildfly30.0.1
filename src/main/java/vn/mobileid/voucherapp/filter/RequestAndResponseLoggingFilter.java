@@ -139,7 +139,7 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
     }
 
     private static void logContent(byte[] content, String contentType, String contentEncoding, String prefix, StringBuilder msg) {
-        MediaType mediaType = MediaType.valueOf(contentType);
+        MediaType mediaType = contentType != null ? MediaType.valueOf(contentType) : MediaType.TEXT_PLAIN;
         boolean visible = VISIBLE_TYPES.stream().anyMatch(visibleType -> visibleType.includes(mediaType));
         if (visible) {
             try {

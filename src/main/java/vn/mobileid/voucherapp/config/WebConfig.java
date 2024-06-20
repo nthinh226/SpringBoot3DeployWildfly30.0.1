@@ -12,8 +12,8 @@ import vn.mobileid.voucherapp.filter.RequestAndResponseLoggingFilter;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOrigins("https://api-wso2am.mobile-id.vn/")
+        registry.addMapping("/**")
+                .allowedOrigins("https://wso2am.mobile-id.vn", "https://api.mobile-id.vn", "http://localhost:8080")
                 .allowedMethods("GET", "POST")
                 .allowedHeaders("header1", "header2", "header3")
                 .exposedHeaders("header1", "header2")
